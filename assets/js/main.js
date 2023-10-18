@@ -151,3 +151,4 @@ function removeScrollUp() {
   let upBtn = document.querySelector('.up-btn');
   upBtn.remove();
 }
+console.log('end of js');

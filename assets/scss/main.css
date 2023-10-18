@@ -1857,7 +1857,7 @@ header.transparent .header .header_rx .nav .service.active a {
 }
 
 #home section .clip {
-  background-image: url("/assets/images/hero-PhotoRoom.png-PhotoRoom.png");
+  background-image: url("assets/images/hero-PhotoRoom.png-PhotoRoom.png");
 }
 
 @media (min-width: 768px) {

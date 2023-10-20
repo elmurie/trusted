@@ -32,29 +32,31 @@ window.addEventListener('scroll', () => {
   }
 });
 
-//animations on scroll (da sistemare)
+//animations on scroll
 
 const animation_elements = document.querySelectorAll('[data-animation]');
 if (animation_elements.length >= 1) {
-  let root = document.querySelector("main");
+  animation_elements.forEach((el, i ) => {
+    el.style.visibility = 'hidden';
+  });
   const options = {
     threshold: 0.5
   }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // entry.target.style.visibility = 'visible';
         entry.target.style.animationName = entry.target.getAttribute('data-animation');
+        entry.target.style.visibility = 'visible';
         entry.target.classList.add('animated');
         observer.unobserve(entry.target)
       }
-      // else {
-      //   entry.target.classList.remove('animated')
-      // }
+      else {
+        entry.target.classList.remove('animated')
+      }
 
     })
   }, options);
-  //
+  
   animation_elements.forEach((el, i ) => {
     observer.observe(el);
   });

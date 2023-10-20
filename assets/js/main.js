@@ -34,32 +34,30 @@ window.addEventListener('scroll', () => {
 
 //animations on scroll (da sistemare)
 
-const the_animation = document.querySelectorAll('.animation')
-
-if (the_animation.length >= 1) {
+const animation_elements = document.querySelectorAll('[data-animation]');
+if (animation_elements.length >= 1) {
+  let root = document.querySelector("main");
+  const options = {
+    threshold: 0.5
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry)
       if (entry.isIntersecting) {
-        // debugger;
+        // entry.target.style.visibility = 'visible';
+        entry.target.style.animationName = entry.target.getAttribute('data-animation');
         entry.target.classList.add('animated');
         observer.unobserve(entry.target)
       }
-      else {
-        entry.target.classList.remove('animated')
-      }
+      // else {
+      //   entry.target.classList.remove('animated')
+      // }
 
     })
-  },
-    {
-      threshold: 0.5
-    });
+  }, options);
   //
-  for (let i = 0; i < the_animation.length; i++) {
-    const elements = the_animation[i];
-
-    observer.observe(elements);
-  }
+  animation_elements.forEach((el, i ) => {
+    observer.observe(el);
+  });
 
 }
 

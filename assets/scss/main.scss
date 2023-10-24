@@ -1,4 +1,3 @@
-
 @import 'animate.scss';
 $light-bg-color : #f4f4f9;
 $dark-bg-color : #242C38;
@@ -34,7 +33,6 @@ em,
 img,
 small,
 strike,
-strong,
 sub,
 sup,
 tt,
@@ -149,7 +147,7 @@ input {
   position: absolute;
   height: 100%;
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 35% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 100%);
   z-index: -1;
   background: #454545e6;
   background-blend-mode: multiply;
@@ -680,6 +678,9 @@ h2 {
 
 
 
+.col {
+  flex: 1 0 0%;
+}
 
 
 .row-cols-1>* {
@@ -687,9 +688,6 @@ h2 {
   width: 100%;
 }
 
-.col {
-  flex: 1 0 0%;
-}
 
 .mb-40 {
   margin-bottom: 40px;
@@ -2293,6 +2291,12 @@ h3.h3-lg {
 
   #mobilenav {
     width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .clip {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 70% 100%, 0 100%);
   }
 }
 

@@ -15,6 +15,17 @@
 <body id="home">
     <header>
         <div class="container">
+            <div class="mobileheader">
+                <span class="smllogo">
+                    <a href="index.html">
+                        <picture>
+                            <source media="(min-width:375px)" srcset="assets/images/logo.svg">
+                            <img src="assets/images/logo_min.svg" alt="mobile-logo">
+                        </picture>
+                    </a>
+                </span>
+                <div id="navtoggle"><i class="fa-solid fa-bars"></i></div>
+            </div>
             <div class="header">
                 <div class="header_lx">
                     <div class="brand">
@@ -38,6 +49,18 @@
             </div>
         </div>
     </header>
+    <div id="mobilenav">
+        <div id="closebtn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+            <li class="service active"><a href="how.html">Come funziona</a></li>
+            <li class="service"><a href="policy.html">Policy</a></li>
+            <li class="service"><a href="faq.html">FAQ</a></li>
+            <li class="service"><a href="info.html">Info</a></li>
+            <li class="service"><a href="contacts.html">Contatti</a></li>
+        </ul>
+    </div>
     <main>
         <section id="single-post" class="wide-100 inner-page-hero single-post-section division">
             <div class="container">
@@ -77,7 +100,7 @@
 
                             <!-- BLOG POST INNER IMAGE -->
                              <div class="post-inner-img">
-                                <img class="img-fluid" src="assets/images/inner-img-1.png" alt="blog-post-image">		
+                                <img loading="lazy" class="img-fluid" src="assets/images/inner-img-1.png" alt="blog-post-image">		
                             </div>
 
 
@@ -162,7 +185,7 @@
                                         <div class="col-md-6 top-img blog-post-img">
 
                                             <!-- Image -->
-                                            <img class="img-fluid" src="assets/images/post-6-img.jpg" alt="blog-post-image">		
+                                            <img loading="lazy" class="img-fluid" src="assets/images/post-6-img.jpg" alt="blog-post-image">		
                                             <!-- Text -->
                                             <p>Maecenas gravida CPU porttitor magna</p>
 
@@ -181,7 +204,7 @@
                                                 </a>
 
                                                 <!-- Preview Image --> 
-                                                 <img class="img-fluid" src="assets/images/post-5-img.jpg" alt="video-preview">
+                                                 <img loading="lazy" class="img-fluid" src="assets/images/post-5-img.jpg" alt="video-preview">
                                 
                                             </div>
 
@@ -260,7 +283,7 @@
 
                                 <!-- BLOG POST INNER IMAGE -->
                                 <div class="post-inner-img">
-                                     <img class="img-fluid" src="assets/images/img-19.png" alt="blog-post-image">
+                                     <img loading="lazy" class="img-fluid" src="assets/images/img-19.png" alt="blog-post-image">
                                 </div>
 
                                 <!-- Small Title -->
@@ -401,7 +424,7 @@
                     <div class="footer-info mb-40">
 
                         <!-- Footer Logo -->	
-                        <img class="footer-logo mb-25" src="assets/images/logo.svg" alt="footer-logo">
+                        <img loading="lazy" class="footer-logo mb-25" src="assets/images/logo.svg" alt="footer-logo">
 
                         <!-- Text -->	
                         <p class="p-md">Aliquam nullam tempor sapien donec and gravida congue an ipsum porta justo 

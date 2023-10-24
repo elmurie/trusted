@@ -1,3 +1,4 @@
+
 @import 'animate.scss';
 $light-bg-color : #f4f4f9;
 $dark-bg-color : #242C38;
@@ -212,11 +213,6 @@ input {
   margin-top: var(--bs-gutter-y);
 }
 
-.col-lg-6 {
-  flex: 0 0 auto;
-  width: 50%;
-}
-
 
 
 .d-flex {
@@ -409,18 +405,47 @@ a {
   position: relative;
 }
 
-// header.scrolled {
-
-//   & .nav{
-//     a {
-//       color: $dark-font-color;
-//     }
-//   }
-// }
+#closebtn {
+  color: $dark-bg-color;
+  font-size: 25px;
+  line-height: 1;
+  text-align: right;
+}
 
 .justify-content-center {
   justify-content: center !important;
 }
+
+#mobilenav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #fff;
+  height: 100vh;
+  z-index: 14000;
+  display: none;
+  overflow: hidden;
+  padding: 10px 20px;
+
+  ul {
+    text-align: right;
+    margin-top: 25px;
+  }
+
+  .service {
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 1;
+
+    &.active {
+      a {
+        color: $primary-font-color;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
 
 header {
   background-color: $dark-bg-color;
@@ -431,11 +456,40 @@ header {
   width: 100%;
   transition: all .5s;
 
-
-  .header {
+  .mobileheader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
+    filter: drop-shadow(2px 2px 1px#222);
+
+    & .smllogo {
+      flex: 0 0 70%;
+
+      img {
+        width: auto;
+        max-width: inherit;
+        max-height: 38px;
+      }
+    }
+
+    & #navtoggle {
+      color: $primary-font-color;
+
+      & i {
+        font-size: 25px;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+  .header {
+    display: none;
+    justify-content: space-between;
     padding: 15px 20px;
+
+
 
     .header {
       &_lx {
@@ -452,7 +506,7 @@ header {
       }
 
       &_rx {
-        flex: 0 0 50%;
+        // flex: 0 0 50%;
 
         .nav {
           height: 100%;
@@ -491,6 +545,10 @@ header {
   &.scrolled.transparent {
     background-color: #fff;
     transition: all .5s;
+
+    .mobileheader {
+      filter: none;
+    }
 
     .header {
       .header {
@@ -1677,6 +1735,7 @@ ol.digit-list {
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .video-container {
@@ -2042,6 +2101,11 @@ h3.h3-lg {
     flex: 0 0 auto;
     width: 50%;
   }
+
+  #mobilenav {
+    width: fit-content;
+  }
+
 }
 
 @media (min-width: 768px) {
@@ -2157,6 +2221,20 @@ h3.h3-lg {
     flex: 0 0 auto;
     width: 50%;
   }
+
+  header {
+    .mobileheader {
+      display: none;
+    }
+
+    .header {
+      display: flex;
+
+      & .header_rx {
+        flex: 1 0 50%;
+      }
+    }
+  }
 }
 
 @media (min-width: 1200px) {
@@ -2184,6 +2262,13 @@ h3.h3-lg {
     flex: 0 0 auto;
     width: 33.33333333%;
   }
+
+  header {
+    .header .header_rx {
+
+      flex: 0 0 50%;
+    }
+  }
 }
 
 @media (min-width: 1400px) {
@@ -2198,3 +2283,27 @@ h3.h3-lg {
   }
 }
 
+@media (max-width: 425px) {
+  #mobilenav {
+    width: 70%;
+  }
+}
+
+@media (max-width: 375px) {
+
+  #mobilenav {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.95px) {
+  .hero-3-txt h2 {
+    margin-bottom: 25px;
+  }
+
+  h2.h2-lg {
+    font-size: 2.9rem;
+  }
+}
+
+@import 'responsive.scss';

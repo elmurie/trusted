@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let headerHeight = header.offsetHeight;
   let firstSection = document.querySelector('section');
   if (firstSection) {
-    firstSection.style.paddingTop = `${headerHeight + 100}px`;
+    firstSection.style.paddingTop = `${headerHeight + 60}px`;
     // transparent header if first section has background-image set to an url
     if (hasBackgroundImageWithURL(firstSection)) {
       header.classList.add('transparent');
@@ -36,7 +36,7 @@ window.addEventListener('scroll', () => {
 
 const animation_elements = document.querySelectorAll('[data-animation]');
 if (animation_elements.length >= 1) {
-  animation_elements.forEach((el, i ) => {
+  animation_elements.forEach((el, i) => {
     el.style.visibility = 'hidden';
   });
   const options = {
@@ -56,8 +56,8 @@ if (animation_elements.length >= 1) {
 
     })
   }, options);
-  
-  animation_elements.forEach((el, i ) => {
+
+  animation_elements.forEach((el, i) => {
     observer.observe(el);
   });
 
@@ -90,7 +90,7 @@ if (videoLinks.length >= 1) {
   videoLinks.forEach(youtubeLink => {
     youtubeLink.addEventListener('click', function (e) {
       e.preventDefault();
-      createOverlay();
+      createVideoOverlay();
       body.style.overflow = 'hidden';
       const overlay = document.querySelector('.overlay');
       const videoUrl = this.getAttribute('href');
@@ -125,7 +125,7 @@ function closeVideo() {
 
 }
 
-function createOverlay() {
+function createVideoOverlay() {
   let body = document.querySelector('body');
   let overlay = document.createElement('div');
   overlay.classList.add('overlay');
@@ -151,4 +151,57 @@ function removeScrollUp() {
   let upBtn = document.querySelector('.up-btn');
   upBtn.remove();
 }
-console.log('end of js');
+
+// mobile menu 
+
+let mobileToggle = document.getElementById('navtoggle');
+mobileToggle.addEventListener('click', openMenu)
+
+let mobileMenuCLoseBtn = document.getElementById('closebtn');
+mobileMenuCLoseBtn.addEventListener('click', destroyMenuOverlay)
+
+function openMenu(){
+  let mobile_header = document.querySelector('.mobileheader');
+  mobile_header.style.animationName = 'bounceOutLeft';
+  mobile_header.classList.add('animated');
+  let mobile_menu = document.getElementById('mobilenav');
+  mobile_menu.style.display = 'block';
+  mobile_menu.style.top = window.scrollY;
+  let menuWidth = mobile_menu.offsetWidth;
+  mobile_menu.style.animationName = 'bounceInRight';
+  mobile_menu.classList.add('animated');
+  createMenuOverlay(menuWidth);
+}
+
+function createMenuOverlay(menuWidth ) {
+  let body = document.querySelector('body');
+  let html = document.querySelector('html');
+  let overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  overlay.style.display = 'block';
+  overlay.style.animationName = 'fadeIn';
+  overlay.classList.add('animated');
+  body.style.overflow = 'hidden';
+  html.style.overflow = 'hidden';
+  body.style.position = 'relative';
+  body.appendChild(overlay);
+  overlay.addEventListener('click', ()=>destroyMenuOverlay());
+}
+
+function destroyMenuOverlay() {
+  let body = document.querySelector('body');
+  let html = document.querySelector('html');
+  let overlay = document.querySelector('.overlay');
+  let mobile_menu = document.getElementById('mobilenav');
+  mobile_menu.style.animationName = 'fadeOutRight';
+  let mobile_header = document.querySelector('.mobileheader');
+  mobile_header.style.animationName = 'fadeInLeft';
+  overlay.style.animationName = 'fadeOut';
+  body.style.removeProperty('overflow');
+  html.style.removeProperty('overflow');
+  setTimeout(() => {
+    mobile_menu.style.display = 'none';
+    console.log(mobile_menu.style.animationDuration)
+    overlay.remove();
+  }, 1000);
+}

@@ -15,6 +15,17 @@
 <body id="home">
     <header>
         <div class="container">
+            <div class="mobileheader">
+                <span class="smllogo">
+                    <a href="index.html">
+                        <picture>
+                            <source media="(min-width:375px)" srcset="assets/images/logo.svg">
+                            <img src="assets/images/logo_min.svg" alt="mobile-logo">
+                        </picture>
+                    </a>
+                </span>
+                <div id="navtoggle"><i class="fa-solid fa-bars"></i></div>
+            </div>
             <div class="header">
                 <div class="header_lx">
                     <div class="brand">
@@ -38,6 +49,18 @@
             </div>
         </div>
     </header>
+    <div id="mobilenav">
+        <div id="closebtn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+            <li class="service"><a href="how.html">Come funziona</a></li>
+            <li class="service"><a href="policy.html">Policy</a></li>
+            <li class="service active"><a href="faq.html">FAQ</a></li>
+            <li class="service"><a href="info.html">Info</a></li>
+            <li class="service"><a href="contacts.html">Contatti</a></li>
+        </ul>
+    </div>
     <main>
         <section id="faqs-page" class="page-hero-section division">
             <div class="page-hero-overlay division">
@@ -265,7 +288,7 @@
                     <div class="footer-info mb-40">
 
                         <!-- Footer Logo -->	
-                        <img class="footer-logo mb-25" src="assets/images/logo.svg" alt="footer-logo">
+                        <img loading="lazy" class="footer-logo mb-25" src="assets/images/logo.svg" alt="footer-logo">
 
                         <!-- Text -->	
                         <p class="p-md">Aliquam nullam tempor sapien donec and gravida congue an ipsum porta justo 

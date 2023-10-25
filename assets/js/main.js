@@ -1,15 +1,6 @@
 // Slide first section below fixed header
 document.addEventListener('DOMContentLoaded', function () {
-  let header = document.querySelector('header');
-  let headerHeight = header.offsetHeight;
-  let firstSection = document.querySelector('section');
-  if (firstSection) {
-    firstSection.style.paddingTop = `${headerHeight + 60}px`;
-    // transparent header if first section has background-image set to an url
-    if (hasBackgroundImageWithURL(firstSection)) {
-      header.classList.add('transparent');
-    }
-  }
+  headerHandler();
 }, false);
 
 const header = document.querySelector('header');
@@ -205,3 +196,34 @@ function destroyMenuOverlay() {
     overlay.remove();
   }, 1000);
 }
+
+function handleOrientationChange() {
+  headerHandler();
+  let mobile_menu = document.getElementById('mobilenav');
+  if (mobile_menu.style.display == 'block') {
+    destroyMenuOverlay();
+  }
+}
+
+function isMobile() {
+ return window.innerWidth < 992 ? true : false;
+}
+
+function headerHandler() {
+  let header = document.querySelector('header');
+  let headerHeight = header.offsetHeight;
+  let firstSection = document.querySelector('section');
+  let arbitraryPadding = isMobile() ? 50 : 70;
+  if (firstSection) {
+    firstSection.style.paddingTop = `${headerHeight + arbitraryPadding}px`;
+    // transparent header if first section has background-image set to an url
+    if (hasBackgroundImageWithURL(firstSection)) {
+      header.classList.add('transparent');
+    }
+  }
+}
+
+
+
+
+window.onresize = handleOrientationChange;
